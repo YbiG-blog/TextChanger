@@ -21,6 +21,20 @@ export default function Textform(props) {
   }
     setText(capitalizedText);
   };
+  const textcopy = () => {
+    
+    let text = document.getElementById("textfrom");
+    text.select();
+    navigator.clipboard.writeText(text.value);
+  };
+  const removeextraspaces = () => {
+    let newtext = text.split(/[ ]+/);
+    setText(newtext.join(" "));
+  };
+  const cleartext = () => {
+    let newtext = ' ';
+    setText(newtext);
+  };
   const onchange = (event) => {
     // console.log("on change");
     setText(event.target.value);
@@ -30,7 +44,7 @@ export default function Textform(props) {
     <>
       
         <div className="form-group">
-        <h1>{props.textH}</h1>
+        <h1 className="text-h">{props.textH}</h1>
           <textarea
             className="form-control"
             id="textfrom"
@@ -48,6 +62,15 @@ export default function Textform(props) {
         </button>
         <button className="btn btn-dark m-2" onClick={capitalize}>
           ChangeToCapitalize
+        </button>
+        <button className="btn btn-dark m-2" onClick={textcopy}>
+          TextCopy
+        </button>
+        <button className="btn btn-dark m-2" onClick={removeextraspaces}>
+          RemoveExtraSpaces
+        </button>
+        <button className="btn btn-dark m-2" onClick={cleartext}>
+         ClearText
         </button>
      
       <div className="conatiner m-4 p-2">
