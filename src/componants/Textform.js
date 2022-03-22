@@ -44,16 +44,18 @@ export default function Textform(props) {
     <>
       
         <div className="form-group">
-        <h1 className="text-h">{props.textH}</h1>
+        <h1 className={`conatiner m-4 p-2 ms-5 text-${props.mode===`light`?`dark`:`light`} text-h`}>{props.textH}</h1>
           <textarea
-            className="form-control"
+            className="form-control ms-5"
             id="textfrom"
             onChange={onchange}
             value={text}
+            style={{backgroundColor: props.mode===`dark`?`gray`:`white`,color:props.mode===`dark`?`white`:`black`,border: '2px solid'}}
             rows="5"
             cols="6"
           ></textarea>
         </div>
+        <div className="conatiner m-2 p-2 ms-5 ">
         <button className="btn btn-dark m-2" onClick={uppercase}>
           ChangeToUpperCase
         </button>
@@ -72,17 +74,17 @@ export default function Textform(props) {
         <button className="btn btn-dark m-2" onClick={cleartext}>
          ClearText
         </button>
-     
-      <div className="conatiner m-4 p-2">
+        </div>
+      <div className={`conatiner m-4 p-2 ms-5 text-${props.mode===`light`?`dark`:`light`}`}>
         <h2>Your Text Summary</h2>
-        <h6>
+        <h6 className="m-3 p-2">
           {text.split(" ").length} Words And {text.length} Characters
         </h6>
-        <p>
+        <p className="m-3 p-2">
           Average time to read para {0.008 * text.split(" ").length * 60}seconds
         </p>
         <h2>Preview.........</h2>
-        <p>{text}</p>
+        <p className="m-3 p-2">{text.length>0?text:"Enter somthing into TextBox for preview"}</p>
       </div>
     </>
   );

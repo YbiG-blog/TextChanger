@@ -33,6 +33,10 @@
 .text-h{
 text-align: center;
 }
+.btn-mode
+{
+border: 4px solid rgb(136, 124, 124);
+}
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
