@@ -6,11 +6,13 @@ export default function Textform(props) {
     // console.log("uppercase"+text);
     let newtext = text.toUpperCase();
     setText(newtext);
+    props.fixalert("Converted to uppercase","success");
   };
   const lowercase = () => {
     // console.log("lowercase"+text);
     let newtext = text.toLowerCase();
     setText(newtext);
+    props.fixalert("Converted to lowercase","success");
   };
   const capitalize = () => {
     // console.log("capitalize"+text);
@@ -20,20 +22,24 @@ export default function Textform(props) {
     capitalizedText += textArray[i].charAt(0).toUpperCase() + textArray[i].slice(1) + " ";
   }
     setText(capitalizedText);
+    props.fixalert("Converted to capitalize","success");
   };
   const textcopy = () => {
     
     let text = document.getElementById("textfrom");
     text.select();
     navigator.clipboard.writeText(text.value);
+    props.fixalert("Text are copied","success");
   };
   const removeextraspaces = () => {
     let newtext = text.split(/[ ]+/);
     setText(newtext.join(" "));
+    props.fixalert("Extra spaces are remove","success");
   };
   const cleartext = () => {
     let newtext = ' ';
     setText(newtext);
+    props.fixalert("Text are cleared","success");
   };
   const onchange = (event) => {
     // console.log("on change");
