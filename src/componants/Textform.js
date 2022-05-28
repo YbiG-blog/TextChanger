@@ -56,7 +56,7 @@ export default function Textform(props) {
             id="textfrom"
             onChange={onchange}
             value={text}
-            style={{backgroundColor: props.mode===`dark`?`gray`:`white`,color:props.mode===`dark`?`white`:`black`,border: '2px solid'}}
+            style={{backgroundColor: props.mode===`dark`?`black`:`white`,color:props.mode===`dark`?`white`:`black`,border: '2px solid'}}
             rows="5"
             cols="6"
           ></textarea>
